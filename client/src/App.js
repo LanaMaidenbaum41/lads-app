@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Header from './common/Header';
 import Routes from './Routes';
 import {BrowserRouter} from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'font-awesome/css/font-awesome.css';
+
 
 class AppWrapper extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Header/>
           <div className="container">
             <Routes/>
           </div>
