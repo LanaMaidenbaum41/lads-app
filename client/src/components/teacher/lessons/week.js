@@ -21,7 +21,8 @@ class Week extends Component {
         return (
             <div className="row weeksList">
                 <div className="col-xs-offset-1 col-xs-10">
-                    <a onClick={this.onClick} href='#'><h1>{this.props.weekNumber}</h1></a>
+                <h1>{this.props.weekNumber}</h1>
+                    <a onClick={this.onClick} href='#'><i className="fa fa-plus fa-3x"></i></a>
                     <div>{this.state.showDays && days}</div>
                 </div>
             </div>
