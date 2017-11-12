@@ -1,19 +1,64 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import Lesson from '../lesson/lesson'
-// presentation of the entire lessons
 import Week from './week.js'
+import Topics from './topics.js'
 
 class Lessons extends Component {
     constructor(props) {
         super(props)
-        this.state = { weeks:
+        this.renderTopics = this.renderTopics.bind(this);
+        this.renderWeeks = this.renderWeeks.bind(this);
+        this.state = {
+            mode: "",
+            topics:
+            {
+                "React": {
+                    "logo": "http://url",
+                    "lessons": [
+                        "Intro to React",
+                        "React Advanced",
+                        "React Project"
+                    ],
+                },
+                "Angular": {
+                    "logo": "http://url",
+                    "lessons": [
+                        "Basics in Angular",
+                        "Angular SpaceBook"
+                    ],
+                },
+                "Computer Hardware": {
+                    "logo": "http://url",
+                    "lessons": [
+                        "Intro",
+                        "Advanced Science",
+                    ],
+                },
+                "Meaningless shit": {
+                    "logo": "http://url",
+                    "lessons": [
+                        "Recursion",
+                        "Bot",
+                        "Authentication"
+                    ]
+                },
+                "JQuery": {
+                    "logo": "http://url",
+                    "lessons": [
+                        "Recursion",
+                        "Bot",
+                        "Authentication"
+                    ]
+                }
+            },
+            weeks:
             {
                 "week1": {
                     "day1": [
                         {
                             "id": 1,
-                            "Topic": "intro intro2",                         
+                            "Topic": "intro intro2",
                             "Description": "an important lesson",
                             "LogoUrl": "http://url",
                             "WeekNumber": 0,
@@ -169,22 +214,44 @@ class Lessons extends Component {
                 }
             }
         }
-    }  
+    }
+
+    renderTopics() {
+        this.setState({ mode: true })
+    }
+    renderWeeks() {
+        this.setState({ mode: false })
+    }
 
     render() {
-            // console.log(this.state.weeks)
-            let week = Object.keys(this.state.weeks).map((week, index) => (
-            <Week key={index} index={index} week={this.state.weeks[week]} weekNumber={week}  />
-        ))
+        let weekOrTopic = () => {
+
+            if (this.state.mode == true) {
+                return Object.keys(this.state.topics).map((topic, index) => (
+                    <Topics key={index} topics={this.state.topics[topic].lessons} topicName={topic} />
+                ))
+            } else {
+                return Object.keys(this.state.weeks).map((week, index) => (
+                    <Week key={index} week={this.state.weeks[week]} test={week} weekNumber={week} />
+                ))
+            }
+        }
+
         return (
             <div>
 
-                    <h1>Lessons Component</h1>
-                    <Link to="/lesson">Lesson</Link>
+                <h1>Lessons Component</h1>
+                <br />
+                <Link to="/lesson">Lesson</Link>
+                <br />
+                <button type="button" className="btn btn-info" onClick={this.renderWeeks}>SORT BY WEEKS !</button>
+                <button type="button" className="btn btn-warning" onClick={this.renderTopics}>SORT BY TOPICS !</button>
+
                 <div>
-                {week}
+                    {weekOrTopic()}
                 </div>
-                
+
+
             </div>
         )
     }

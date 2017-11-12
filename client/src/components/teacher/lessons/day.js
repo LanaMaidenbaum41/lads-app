@@ -18,12 +18,12 @@ class Day extends Component {
 
             <div className="col-xs-2">
                 <div className="daysList">
-                    <h3>{this.props.day}</h3>
+                    <h3 className="daysHead">{this.props.day}</h3>
                     <br />
-                    <div className="topicsList">
+                    <div className="daysTopics">
                         {this.props.days.map((day, index) =>
                             <div key={index}>
-                                <a className="topic">
+                                <a href="#" className="weekTopic">
                                     {day.Topic}
                                 </a>
 
