@@ -10,7 +10,7 @@ class Week extends Component {
         this.onClick = this.onClick.bind(this);
     }
 
-    onClick(){
+    onClick() {
         this.setState({ showDays: !this.state.showDays })
     }
 
@@ -21,8 +21,14 @@ class Week extends Component {
         return (
             <div className="row weeksList">
                 <div className="col-xs-offset-1 col-xs-10">
-                <h1>{this.props.weekNumber}</h1>
-                    <a onClick={this.onClick} href='#'><i className="fa fa-plus fa-3x"></i></a>
+                    <h1>{this.props.weekNumber}</h1>
+
+                    <div>{this.state.showButton &&
+                        <a onClick={this.onClick} href='#'><i className="fa fa-plus fa-3x"></i></a>}</div>
+
+                    <div>{this.state.showButton &&
+                        <a onClick={this.onClick} href='#'><i className="fa fa-minus fa-3x"></i></a>}</div>
+
                     <div>{this.state.showDays && days}</div>
                 </div>
             </div>
