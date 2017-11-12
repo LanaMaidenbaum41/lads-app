@@ -30,8 +30,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //Use routes middleware
-app.use('/users', userRoutes);
-app.use('/lessons', lessonRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/lessons', lessonRoutes);
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '/server/static/index.html'));
+});
 // app.use('/sections', sectionRoutes);
 // app.use('/content', contentRoutes);
 
