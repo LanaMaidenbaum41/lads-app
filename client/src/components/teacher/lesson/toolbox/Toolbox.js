@@ -36,7 +36,7 @@ class Toolbox extends Component {
         return (
             <div className="toolbox">
                 <div className="btn-group">
-                    <Button label='h1' toggleNew={this.toggleElementAdding}/>
+                    <Button label='h1' addContent={this.props.addContent}/>
                     <Button label='h2' toggleNew={this.toggleElementAdding}/>
                     <Button label='h3' toggleNew={this.toggleElementAdding}/>
                     <Button label='hr' toggleNew={this.toggleElementAdding}/>

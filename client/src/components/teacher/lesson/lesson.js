@@ -9,9 +9,12 @@ class Lesson extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            elementAdding: false,
-            currentButton: '',
-            currentSection: 0,
+            status: {
+                elementAdding: false,
+                currentButton: '',
+                currentSection: undefined,
+                currentContent: undefined
+            },
 
             title: "Lesson Title",
             sections: [
@@ -70,7 +73,7 @@ class Lesson extends Component {
                             editable: false,
                             type: "paragraph",
                             text: "That's a good thing!"
-                        }, 
+                        },
                         {
                             editable: false,
                             type: "paragraph",
@@ -137,8 +140,10 @@ class Lesson extends Component {
         }
         this.addSection = this.addSection.bind(this);
         this.editContent = this.editContent.bind(this);
-        this.toggleElementAdding = this.toggleElementAdding.bind(this); 
-        this.toggleEditing = this.toggleEditing.bind(this);       
+        this.toggleElementAdding = this.toggleElementAdding.bind(this);
+        this.toggleEditing = this.toggleEditing.bind(this);
+        this.selectHighlight = this.selectHighlight.bind(this);
+        this.addContent = this.addContent.bind(this);
     }
 
     addSection(header) {
@@ -147,43 +152,53 @@ class Lesson extends Component {
             headerEditable: false,
             contents: []
         }
-        this.setState({sections: this.state.sections.concat(newSection)});
+        this.setState({ sections: this.state.sections.concat(newSection) });
+    }
+
+    addContent(){
+        if(this.state.status.currentSection === undefined) {
+            return;
+        }
+        let newContent = {
+            editable: false,
+            type: "paragraph",
+            text: "Sample Text"
+        }
+        this.setState((prevState) => { return { [prevState.sections[this.state.status.currentSection]]: 
+            prevState.sections[this.state.status.currentSection].contents.splice(this.state.status.currentContent + 1, 0, newContent)}});
     }
 
     editContent(newText, sectionIndex, contentIndex) {
         console.log(`${newText}, ${sectionIndex}, ${contentIndex}`)
-        if(contentIndex >= 0) {
-            this.setState((prevState)=>{return{[prevState.sections[sectionIndex]]:prevState.sections[sectionIndex].contents[contentIndex].text=newText}})
+        if (contentIndex >= 0) {
+            this.setState((prevState) => { return { [prevState.sections[sectionIndex]]: prevState.sections[sectionIndex].contents[contentIndex].text = newText } })
         }
-        else if(sectionIndex >= 0) {
-            this.setState((prevState)=>{return{[prevState.sections[sectionIndex]]:prevState.sections[sectionIndex].header=newText}})            
+        else if (sectionIndex >= 0) {
+            this.setState((prevState) => { return { [prevState.sections[sectionIndex]]: prevState.sections[sectionIndex].header = newText } })
         }
-        this.toggleEditing(sectionIndex, contentIndex);        
+        this.toggleEditing(sectionIndex, contentIndex);
     }
 
-    toggleEditHeader(sectionIndex) {
-
-    }
-
-    toggleEditContent(sectionIndex, contentIndex) {
-
+    selectHighlight(sectionIndex, contentIndex) {
+        this.setState((prevState) => { return {[prevState.status.currentSection]: prevState.status.currentSection = sectionIndex}});
+        this.setState((prevState) => { return {[prevState.status.currentContent]: prevState.status.currentContent = contentIndex}});
     }
 
     toggleEditing(sectionIndex, contentIndex) {
-        if(contentIndex >= 0) {
+        if (contentIndex >= 0) {
             let contentEditable = this.state.sections[sectionIndex].contents[contentIndex].editable;
-            this.setState((prevState)=>{return{[prevState.sections[sectionIndex]]:prevState.sections[sectionIndex].contents[contentIndex].editable = !contentEditable}})
+            this.setState((prevState) => { return { [prevState.sections[sectionIndex]]: prevState.sections[sectionIndex].contents[contentIndex].editable = !contentEditable } })
         }
-        else if(sectionIndex >= 0) {
+        else if (sectionIndex >= 0) {
             let sectionEditable = this.state.sections[sectionIndex].headerEditable;
-            this.setState((prevState)=>{return{[prevState.sections[sectionIndex]]:prevState.sections[sectionIndex].headerEditable = !sectionEditable}})            
+            this.setState((prevState) => { return { [prevState.sections[sectionIndex]]: prevState.sections[sectionIndex].headerEditable = !sectionEditable } })
         }
     }
 
     toggleElementAdding(buttonLabel) {
-        this.setState({ elementAdding: !this.state.elementAdding});
-        if(buttonLabel) {
-            this.setState({currentButton: buttonLabel.target.innerHTML});
+        this.setState({ [status.elementAdding]: !this.state.status.elementAdding });
+        if (buttonLabel) {
+            this.setState({ [status.currentButton]: buttonLabel.target.innerHTML });
         }
     }
 
@@ -193,17 +208,20 @@ class Lesson extends Component {
 
     render() {
         var displaySections = this.state.sections.map((section, index) => {
-            return <Section key={index} section={section} contents={section.contents} sectionIndex={index} toggleEditing={this.toggleEditing} editContent={this.editContent}></Section>
+            return <Section 
+                        key={index} section={section} sectionIndex={index} toggleEditing={this.toggleEditing} 
+                        editContent={this.editContent} status={this.state.status} selectHighlight={this.selectHighlight}
+                   ></Section>
         })
-        let formHtml = <Form toggleNew={this.toggleElementAdding} addElement={this.addSection}/>;
-        let form = (this.state.elementAdding ? formHtml : '');
+        let formHtml = <Form toggleNew={this.toggleElementAdding} addElement={this.addSection} />;
+        let form = (this.state.status.elementAdding ? formHtml : '');
         return (
             <div>
                 <h1>{this.state.title}</h1>
                 <Link to='/lessons'>Back To Lessons</Link>
                 {displaySections}
 
-                <Toolbox toggleElementAdding={this.toggleElementAdding}/>
+                <Toolbox toggleElementAdding={this.toggleElementAdding} addContent={this.addContent}/>
                 {form}
             </div>
         )

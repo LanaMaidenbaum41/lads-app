@@ -74,3 +74,7 @@ hr{
     text-align: center;
     
 }
+
+.selected{
+    background-color: rgb(175, 173, 173);
+}
