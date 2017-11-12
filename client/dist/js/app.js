@@ -12427,11 +12427,7 @@ var AppWrapper = function (_React$Component) {
         _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(
-            'div',
-            { className: 'container' },
-            _react2.default.createElement(_Routes2.default, null)
-          )
+          _react2.default.createElement(_Routes2.default, null)
         )
       );
     }
@@ -24397,7 +24393,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Routes = function Routes() {
     return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        null,
         _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
@@ -27925,7 +27921,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Ind
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Indie+Flower|Montserrat);", ""]);
 
 // module
-exports.push([module.i, ".Login{\n    /* background-image: url(\"https://static.pexels.com/photos/265127/pexels-photo-265127.jpeg\"); */\n    background-size: cover;\n    background-image: url(\"https://tatianadesigns.com/wp-content/uploads/2016/10/web-design-graphic-tatiana-designs.jpg\");\n    width: 100%;\n    height: 826px;\n    padding-top: 200px;\n    background-repeat: no-repeat;\n    background-attachment: fixed;\n    background-position: center; \n  }  \n  .loginBox {\n    background-color: rgba(255,255,255,.84);\n    width: 35%;\n    margin: auto;\n    height: 450px;\n    padding: 20px;\n    border-radius: 10px;\n    \n  }\n  .head-login{\n    text-align: center;\n    font-family: 'Indie Flower', cursive;\n    font-size: 60px;\n  }\n  .form-login {\n    width: 60%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 30px;\n  }\n  .fa-envelope {\n    position: absolute; \n    text-indent:9px;\n    margin-top:9px;\n    }\n  .fa-lock{\n    position: absolute; \n    text-indent:9px;\n    margin-top:3px;\n    }\n    .form-control {\n    text-indent:25px;\n    }\n    .btn-submit-div{\n      text-align: center;\n    }\n  .btn-submit{\n    width: 70%;\n    height: 40px;\n    margin-top: 10px;\n  }\n  .otherConnections{\n    text-align: center;\n    margin-top: 5px;\n    font-family: 'Montserrat', sans-serif;\n  }\n  .fa-linkedin-square{\n    color: #6D6D9A\n  }\n  .fa-facebook-square{\n    color: blue\n  }\n  .fa-google-plus-square{\n    color: red\n  }\n  .fa-github-square{\n    color: black\n  }\n  .icons{\n    margin: 3px;\n    cursor: pointer;\n  }\n  .version{\n    margin-top: 50px;\n    font-size: 13px;\n    \n  }", ""]);
+exports.push([module.i, ".Login{\n    /* background-image: url(\"https://static.pexels.com/photos/265127/pexels-photo-265127.jpeg\"); */\n    background-size: cover;\n    background-image: url(\"https://tatianadesigns.com/wp-content/uploads/2016/10/web-design-graphic-tatiana-designs.jpg\");\n    width: 100%;\n    height: 826px;\n    padding-top: 200px;\n    background-repeat: no-repeat;\n    background-attachment: fixed;\n    background-position: center; \n  }  \n  .loginBox {\n    background-color: rgba(255,255,255,.84);\n    width: 35%;\n    margin: auto;\n    height: 450px;\n    padding: 20px;\n    border-radius: 10px;\n    \n  }\n  .head-login{\n    text-align: center;\n    font-family: 'Indie Flower', cursive;\n    font-size: 60px;\n  }\n  .form-login {\n    width: 60%;\n    margin-left: auto;\n    margin-right: auto;\n    margin-top: 30px;\n  }\n  .form-group{\n    position:relative;\n  }\n  .fa-envelope {\n    position: absolute; \n    top:9px;\n    left:7px;\n    }\n  .fa-lock{\n    position: absolute; \n    top:3px;\n    left:7px\n    }\n    .form-control {\n    text-indent:20px;\n    }\n    .btn-submit-div{\n      text-align: center;\n    }\n  .btn-submit{\n    width: 70%;\n    height: 40px;\n    margin-top: 10px;\n  }\n  .otherConnections{\n    text-align: center;\n    margin-top: 5px;\n    font-family: 'Montserrat', sans-serif;\n  }\n  .fa-linkedin-square{\n    color: #6D6D9A\n  }\n  .fa-facebook-square{\n    color: blue\n  }\n  .fa-google-plus-square{\n    color: red\n  }\n  .fa-github-square{\n    color: black\n  }\n  .icons{\n    margin: 3px;\n    cursor: pointer;\n  }\n  .version{\n    margin-top: 50px;\n    font-size: 13px;\n    \n  }", ""]);
 
 // exports
 
@@ -28519,7 +28515,7 @@ var Toolbox = function (_Component) {
                     _react2.default.createElement(_Button2.default, { label: 'a?', toggleNew: this.toggleElementAdding }),
                     _react2.default.createElement(_Button2.default, { label: 'show', toggleNew: this.toggleElementAdding }),
                     _react2.default.createElement(_Button2.default, { label: 'img', toggleNew: this.toggleElementAdding }),
-                    _react2.default.createElement(_Button2.default, { label: 'pub', toggleNew: this.toggleElementAdding })
+                    _react2.default.createElement(_Button2.default, { label: _react2.default.createElement('i', { className: 'fa fa-floppy-o fa-2x', 'aria-hidden': 'true' }), toggleNew: this.toggleElementAdding })
                 )
             );
         }
@@ -28570,7 +28566,7 @@ exports = module.exports = __webpack_require__(65)(undefined);
 
 
 // module
-exports.push([module.i, ".btn-group {\n    position: fixed;\n    /* height: 200px; */\n    top: 10%;\n    bottom:5%;\n    margin-left: 2%; \n     \n  }\n  \n  .btn-group button {\n    margin-top:10%;\n    background-color: rgb(58, 102, 190); \n    box-shadow:0 3px 25px 5px #807f7f ;\n    border: none; \n    cursor: pointer; \n    width: 55px; \n    height:55px;\n    border-radius:50%;\n    display: block; \n    transition-property: width,height;\n    transition-duration: .5s;\n    \n  }\n  \n  .btn-group button:not(:last-child) {\n    border-bottom: none; /* Prevent double borders */\n  }\n  \n  /* Add a background color on hover */\n  .btn-group button:hover {\n    background-color:rgb(81, 139, 255); \n    width:65px;\n    height:65px;\n  }\n\n  .lesson-element{\n    border: 1px solid black;\n    width: 50%;\n    margin-left: 25%;\n  }\n\n  .toolbox{\n    text-align: center;\n    position:fixed;\n    /* top:7%;\n    left:0%; */\n  }", ""]);
+exports.push([module.i, "  .toolbox{\n  text-align: center;\n  position:fixed;\n  top:10%;\n  left:1%;\n}\n  .btn-group button {\n    margin-top:10%;\n    background-color: rgb(58, 102, 190); \n    box-shadow:0 3px 25px 5px #807f7f ;\n    border: none;\n    cursor: pointer; \n    width: 55px; \n    height:55px;\n    border-radius:50%;\n    display: block; \n    transition-property: width,height;\n    transition-duration: .5s;\n    \n  }\n  \n  /* Add a background color on hover */\n  .btn-group button:hover {\n    background-color:rgb(81, 139, 255); \n    width:65px;\n    height:65px;\n  }\n\n  .lesson-element{\n    width: 140%;\n    margin-left: -125px;\n  }\n\n  .fa-floppy-o{\n    color:rgba(245, 245, 245, 0.699)\n  }\n\n  input{\n  height: 50px;\n  width: 100%;\n  margin-left:0;\n  border-radius: 10px;\n  border-style: outset;\n  }", ""]);
 
 // exports
 
@@ -28694,13 +28690,14 @@ var Week = function (_Component) {
                     'div',
                     { className: 'col-xs-offset-1 col-xs-10' },
                     _react2.default.createElement(
+                        'h1',
+                        null,
+                        this.props.weekNumber
+                    ),
+                    _react2.default.createElement(
                         'a',
                         { onClick: this.onClick, href: '#' },
-                        _react2.default.createElement(
-                            'h1',
-                            null,
-                            this.props.weekNumber
-                        )
+                        _react2.default.createElement('i', { className: 'fa fa-plus fa-3x' })
                     ),
                     _react2.default.createElement(
                         'div',
