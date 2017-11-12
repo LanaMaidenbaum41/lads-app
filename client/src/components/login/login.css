@@ -31,18 +31,21 @@
     margin-right: auto;
     margin-top: 30px;
   }
+  .form-group{
+    position:relative;
+  }
   .fa-envelope {
     position: absolute; 
-    text-indent:9px;
-    margin-top:9px;
+    top:9px;
+    left:7px;
     }
   .fa-lock{
     position: absolute; 
-    text-indent:9px;
-    margin-top:3px;
+    top:3px;
+    left:7px
     }
     .form-control {
-    text-indent:25px;
+    text-indent:20px;
     }
     .btn-submit-div{
       text-align: center;

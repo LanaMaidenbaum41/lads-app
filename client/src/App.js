@@ -11,9 +11,8 @@ class AppWrapper extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <div className="container">
             <Routes/>
-          </div>
+         
         </div>
       </BrowserRouter>
 

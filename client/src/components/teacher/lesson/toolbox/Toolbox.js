@@ -45,7 +45,7 @@ class Toolbox extends Component {
                     <Button label='a?' toggleNew={this.toggleElementAdding}/>
                     <Button label='show' toggleNew={this.toggleElementAdding}/>
                     <Button label='img' toggleNew={this.toggleElementAdding}/>
-                    <Button label='pub' toggleNew={this.toggleElementAdding}/>
+                    <Button label={<i className="fa fa-floppy-o fa-2x" aria-hidden="true"></i>} toggleNew={this.toggleElementAdding}/>
                 </div>
                 {/* {lessonElements} */}
                 {/* {form} */}

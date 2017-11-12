@@ -7,7 +7,7 @@ import Lesson from './components/teacher/lesson/lesson'
 import {Switch, Route, Redirect} from 'react-router-dom';
 
 const Routes = () => (
-    <div className="container">
+    <div>
         <Switch>
             <Route name="home" exact path='/' component={Login} />
        
