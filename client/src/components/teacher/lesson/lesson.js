@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../style.css'
 import { Link } from 'react-router-dom'
 import Section from './section'
 import Toolbox from './toolbox/Toolbox'
@@ -198,7 +197,7 @@ class Lesson extends Component {
         let formHtml = <Form toggleNew={this.toggleElementAdding} addElement={this.addSection}/>;
         let form = (this.state.elementAdding ? formHtml : '');
         return (
-            <div>
+            <div className="lesson-container">
                 <h1>{this.state.title}</h1>
                 <Link to='/lessons'>Back To Lessons</Link>
                 {displaySections}
