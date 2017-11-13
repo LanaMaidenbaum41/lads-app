@@ -15,6 +15,7 @@ function Sidebar(props) {
 		// </div>
 
 		<div id="sidebar-container">
+			<div>test</div>
 			<div id="sidebar-wrapper">
 				<ul id="sidebar-nav">
 					<li><i className="fa fa-book" aria-hidden="true" /><span className="sidebar-title">Lessons</span><i className="fa fa-chevron-right" /></li>
