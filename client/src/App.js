@@ -17,8 +17,7 @@ class AppWrapper extends React.Component {
       
      
             <Routes/>
-         
-   
+    
        
       </BrowserRouter>
       </div>
